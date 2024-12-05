@@ -7,7 +7,7 @@
 ========         .----------------------.   | === |          ========
 ========         |.-""""""""""""""""""-.|   |-----|          ========
 ========         ||                    ||   | === |          ========
-========         ||   KICKSTART.NVIM   ||   |-----|          ========
+=======         ||   KICKSTART.NVIM   ||   |-----|          ========
 ========         ||                    ||   | === |          ========
 ========         ||                    ||   |-----|          ========
 ========         ||:Tutor              ||   |:::::|          ========
@@ -159,6 +159,13 @@ vim.opt.scrolloff = 10
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Save with CTRL + S
+vim.keymap.set('i', '<C-s>', '<cmd>w<CR>')
+vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
+
+-- Escape Insert mode with jj
+vim.keymap.set('i', 'jj', '<Esc>')
 
 -- Set the file name in the titlebar.
 vim.opt.title = true
@@ -582,6 +589,7 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         gopls = {},
+        rust_analyzer = {},
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
